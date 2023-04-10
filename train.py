@@ -7,7 +7,7 @@ from tensorflow.keras.callbacks import ModelCheckpoint
 piano_roll_dir = "data/piano_rolls"
 
 # Load a subset of the data
-train_files = open("data/train_files.txt", "r").read().splitlines()[:100]
+train_files = open("data/train_files.txt", "r").read().splitlines()[:500]
 train_data = [np.load(f"{piano_roll_dir}/{file}") for file in train_files]
 
 # Set the time steps for the piano roll
@@ -52,4 +52,4 @@ for i in range(num_batches):
     model.fit(padded_batch, padded_batch, epochs=1, callbacks=[checkpoint])
 
 # Save the final model
-model.save("model.h5")
+model.save("model/model.h5")
