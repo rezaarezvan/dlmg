@@ -7,7 +7,8 @@ from tensorflow.keras.callbacks import ModelCheckpoint
 piano_roll_dir = "data/piano_rolls"
 
 # Load a subset of the data
-train_files = open("data/train_files.txt", "r").read().splitlines()[:500]
+num_files = 1000
+train_files = open("data/train_files.txt", "r").read().splitlines()[:num_files]
 train_data = [np.load(f"{piano_roll_dir}/{file}") for file in train_files]
 
 # Set the time steps for the piano roll
