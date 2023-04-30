@@ -13,7 +13,7 @@ seed = np.zeros((1, seed_length, 128))
 seed[0, :, np.random.randint(0, 128, seed_length)] = 1
 
 # Generate a sequence of notes using the model
-num_notes = 128
+num_notes = 5000  # updated
 generated_sequence = seed.copy()
 for i in range(num_notes):
     prediction = model.predict(generated_sequence)[:, -1, :]

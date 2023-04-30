@@ -24,7 +24,7 @@ for i, seq in enumerate(eval_data):
 
     # Pad the sequence with zeros
     padded_seq = np.zeros((1, len(seq), 128))
-    padded_seq[0, :len(seq)] = seq
+    padded_seq[0, :len(seq)] = 0
 
     # Generate predictions for the sequence
     pred_seq = model.predict(padded_seq)
@@ -33,6 +33,11 @@ for i, seq in enumerate(eval_data):
     loss = np.sum(np.square(pred_seq - padded_seq))
     total_loss += loss
 
+    # Convert the predicted and true sequences to binary labels
+
     print(f"Sequence {i+1} Loss: {loss}")
 
-print(f"Total Loss: {total_loss}")
+average_loss = total_loss / len(eval_data)
+
+
+print(f"Average Loss: {average_loss}")
