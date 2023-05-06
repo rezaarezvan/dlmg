@@ -1,9 +1,11 @@
-FROM tensorflow/tensorflow:latest-gpu
+
+FROM python:3.9
 
 WORKDIR /home/reza/Code/dlmg/
 
 COPY . .
-
 RUN pip install -r requirements.txt
 
-CMD ["python", "train.py"]
+COPY scripts/ ./scripts/
+
+CMD ["python", "./scripts/preprocess.py"]
