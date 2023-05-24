@@ -2,3 +2,4 @@ numpy
 tensorflow
 pypianoroll
 pretty_midi
+tqdm
